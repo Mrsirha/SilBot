@@ -18,11 +18,13 @@ while True:
     for char in sil.getPhrase():
         keyboard.press(char)
         keyboard.release(char)
-        time.sleep(0.01)
+        time.sleep(0.001)
+    time.sleep(0.1)
     keyboard.press(Key.enter)
+
 
     if sil.getInst() > 10:
         break
     i += 1
-
-print("There were " + sil.getInst() + " Sils." )
+print()
+print("There were " + str(sil.getInst()) + " Sils." )
