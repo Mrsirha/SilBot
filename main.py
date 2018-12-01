@@ -5,10 +5,11 @@ import random
 
 file_object = open("Sil.txt","r").read()
 lines = file_object.splitlines()
-
 while True:
     sil = Sil(lines, time.time())
-    if time.time() == sil.getDeath():
-        print(sil.getPhrase())
-    time.sleep(1)
+    time.sleep(sil.getDeath())
+    print(sil.getPhrase())
+    if sil.getInst() > 10:
+        break
+
 print("There were " + sil.getInst() + " Sils." )

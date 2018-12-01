@@ -10,14 +10,14 @@ class Sil(object):
         self.phrases = phrases
         self.age = time
         self.pickPhrase(phrases)
+        self.pickTime()
     def pickPhrase(self,phrases):
         n = random.randint(0,len(phrases) - 1)
-        phrase = phrases[n]
+        self.phrase = phrases[n]
     def pickTime(self):
         # Pick a time between 0s, and 30s
         n = random.randint(0,3)
-        print(n + self.age)
-        self.death =  int(n + self.age)
+        self.death =  n
     def getAge(self):
         return self.age
     def getInst(self):
