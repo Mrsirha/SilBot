@@ -1,14 +1,15 @@
 #the sil object that decides the phrase and time that the phrase is uttered
 import random
 class Sil(object):
-    instance = 0 #how many sils have existed before this one
+    instance = 0 # How many sils have existed before this one
     phrases = []
     phrase = ""
-    age = 0 #Time the sil was created
+    age = 0 # Time the sil was created
     death = 0
-    def __init__(self, phrases, time):
+    def __init__(self, phrases, time, inst):
         self.phrases = phrases
         self.age = time
+        self.instance = inst
         self.pickPhrase(phrases)
         self.pickTime()
     def pickPhrase(self,phrases):
@@ -16,7 +17,7 @@ class Sil(object):
         self.phrase = phrases[n]
     def pickTime(self):
         # Pick a time between 0s, and 30s
-        n = random.randint(0,3)
+        n = random.randint(1,5)
         self.death =  n
     def getAge(self):
         return self.age
