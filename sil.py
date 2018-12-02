@@ -6,6 +6,7 @@ class Sil(object):
     phrase = ""
     age = 0 # Time the sil was created
     death = 0
+    input = ""
     def __init__(self, phrases, time, inst):
         self.phrases = phrases
         self.age = time
@@ -20,7 +21,10 @@ class Sil(object):
     def pickTime(self):
         # Pick a time between 0s, and 30s
         n = random.randint(0,30)
-        self.death =  n
+        self.death = n
+
+    def setInput(self):
+        self.input = ''
 
     def getAge(self):
         return self.age
