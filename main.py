@@ -60,10 +60,11 @@ def silChat():
     sil.trainChatBot()
     while True:
         #try:
-        if Keyboard.is_pressed('q'):
+
+        inp = input("You: ")
+        if inp == 'q':
             print("Exiting...")
             break
-        inp = input("You: ")
         print("Sil: " + str(sil.getResponse(inp)))
         #except:
             #print("There was an error...")
