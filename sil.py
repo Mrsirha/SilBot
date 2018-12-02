@@ -14,13 +14,15 @@ class Sil(object):
     death = 0
     input = ""
     chatbot = ChatBot("")
-    def __init__(self, phrases, time, inst):
+    def __init__(self, phrases, time, inst=None):
         self.phrases = phrases
         self.age = time
         self.instance = inst
         self.pickPhrase(phrases)
         self.pickTime()
         chatbot = ChatBot("Sil #"+str(self.instance))
+        if inst == None:
+            self.instance = 0
 
     def pickPhrase(self,phrases):
         n = random.randint(0,len(phrases) - 1)
