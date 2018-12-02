@@ -12,18 +12,24 @@ class Sil(object):
         self.instance = inst
         self.pickPhrase(phrases)
         self.pickTime()
+
     def pickPhrase(self,phrases):
         n = random.randint(0,len(phrases) - 1)
         self.phrase = phrases[n]
+
     def pickTime(self):
         # Pick a time between 0s, and 30s
-        n = random.randint(1,5)
+        n = random.randint(0,30)
         self.death =  n
+
     def getAge(self):
         return self.age
+
     def getInst(self):
         return self.instance
+
     def getPhrase(self):
         return self.phrase
+
     def getDeath(self):
         return self.death
