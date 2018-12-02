@@ -1,16 +1,17 @@
 #The Sil Bot
 import time
-from sil import Sil
 import random
+from sil import Sil
+
 import keyboard as Keyboard
 from pynput.keyboard import Key, Controller
-
 keypress = Controller()
 file_object = open("Sil.txt","r").read()
 lines = file_object.splitlines()
 
+
 def Menu(): # A menu option (WIP - need to add functionality for Discord, input, and expected response)
-    print("Welcome to SilBot \n1.Begin typing as Sil \n2.Exit")
+    print("Welcome to SilBot \n1.Begin typing as Sil \n2.Exit\n3.ChatBot Sil")
     choice = input("Enter: ")
     if choice == "1":
         beginTyping()
@@ -19,8 +20,11 @@ def Menu(): # A menu option (WIP - need to add functionality for Discord, input,
         print("Exiting...")
         exit()
 
+    elif choice == "3":
+        silChat()
+
 def beginTyping():
-    print("Prepare to type as sil")
+    print("\nPrepare to type as sil\nq:exit")
     i = 0
     sil = Sil(lines, time.time(), i)
     while True:
@@ -46,8 +50,25 @@ def beginTyping():
 
         except:
             print("There was an error...")
-
+            exit()
     print("\n There were " + str(sil.getInst()) + " Sils." )
+
+
+def silChat():
+    print("\nPrepare to chat with Sil!\nq:exit\n")
+    sil = Sil(lines, time.time(), 0)
+    sil.trainChatBot()
+    while True:
+        #try:
+        if Keyboard.is_pressed('q'):
+            print("Exiting...")
+            break
+        inp = input("You: ")
+        print("Sil: " + str(sil.getResponse(inp)))
+        #except:
+            #print("There was an error...")
+            #exit()
+
 
 if __name__ == '__main__':
     Menu()
